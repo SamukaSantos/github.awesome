@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pg:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pg="clr-namespace:GitHub.Awesome.View.Base;assembly=GitHub.Awesome"
+             xmlns:tp="clr-namespace:GitHub.Awesome.ViewTemplate.Templates;assembly=GitHub.Awesome"
+             xmlns:cc="clr-namespace:GitHub.Awesome.ViewTemplate.Controls;assembly=GitHub.Awesome"
+             xmlns:resx="clr-namespace:GitHub.Awesome.Infra.Resources;assembly=GitHub.Awesome"
+             x:Class="GitHub.Awesome.View.Pages.Navigation.MainMenuPage"
+             Title="{ x:Static resx:AppResources.LABEL_APP }">
+     <Grid RowSpacing="0"
+        VerticalOptions="FillAndExpand"
+        Padding="0,20,0,0"
+        Margin="0,0,0,10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="100" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
+         
+        <Grid
+            Grid.Row="0"
+            VerticalOptions="Start"
+            HorizontalOptions="Start"
+            RowSpacing="0"
+            ColumnSpacing="-26">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="Auto" />
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <cc:BrandBlock
+                Margin="10"
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalOptions="Start" />
+            
+        </Grid>
+
+        <ListView
+            Grid.Row="1"
+            x:Name="optionItems"
+            ItemSelected="OnItemSelected"
+            ItemsSource="{ Binding Options }"
+            SeparatorVisibility="None"
+            VerticalOptions="FillAndExpand"
+            CachingStrategy="RecycleElement">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <tp:MainMenuItemTemplate />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</pg:BaseContentPage>

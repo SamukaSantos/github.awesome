@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffil="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffts="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="GitHub.Awesome.ViewTemplate.Templates.PullRequestItemViewTemplate">
+    <Grid RowSpacing="0"
+              Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Padding="0"
+                     Grid.Row="0">
+            <Label Text="{Binding CustomTitle}" 
+                   FontSize="Medium"
+                   TextColor="#406eb8"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="1">
+            <Label Text="{Binding Head.Repo.CustomDescription}"
+                   FontSize="Micro"
+                   TextColor="#8f8f8f"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="2">
+            <Grid RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="6*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0"
+                             HorizontalOptions="Start"
+                             VerticalOptions="Center"
+                             Margin="0,5,0,0">
+                    <ffil:CachedImage HorizontalOptions="Center" 
+                                  VerticalOptions="Center"
+                                  WidthRequest="36"
+                                  HeightRequest="36"
+                                  CacheDuration="60"
+                                  RetryDelay="250"
+                                  LoadingPlaceholder="rotate.png"
+                                  ErrorPlaceholder="error.png"
+                                  DownsampleToViewSize="true"
+                                  Source="{Binding User.AvatarUrl}">
+                        <ffil:CachedImage.Transformations>
+                            <ffts:CircleTransformation/>
+                        </ffil:CachedImage.Transformations>
+                    </ffil:CachedImage>
+                </StackLayout>
+
+                <StackLayout Grid.Column="1"
+                             Spacing="0"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Start">
+                    <Label Text="{Binding User.Name}"
+                           TextColor="#406eb8"
+                           FontSize="Small"/>
+                    <Label Text="{Binding Date}"
+                           TextColor="#8f8f8f"
+                           FontSize="Micro"/>
+                </StackLayout>
+
+            </Grid>
+        </StackLayout>
+    </Grid>
+</ContentView>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:ffil="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffts="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="GitHub.Awesome.ViewTemplate.Templates.RepositoryItemViewTemplate">
+    <ContentView.Content>
+        <!--<ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="stackStyle" TargetType="StackLayout">
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="Margin" Value="0,5,0,0" />
+                <Setter Property="Spacing" Value="0,5,0,0" />
+                <Setter Property="Orientation" Value="Horizontal" />
+            </Style>
+            <Style x:Key="labelLegendStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="#de9307" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>-->
+        <Grid RowSpacing="0"
+              Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Padding="0"
+                         Grid.Row="0" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="2">
+                <Label Text="{Binding Name}" 
+                           FontSize="Medium"
+                           TextColor="#406eb8"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" 
+                         Grid.Column="0"
+                         Padding="0,5,0,0">
+                <Label Text="{Binding CustomDescription}"
+                       FontSize="Micro"
+                       TextColor="#8f8f8f"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" 
+                         Grid.Column="1">
+                <ffil:CachedImage HorizontalOptions="Center" 
+                                  VerticalOptions="Center"
+                                  WidthRequest="70"
+                                  HeightRequest="70"
+                                  CacheDuration="60"
+                                  RetryDelay="250"
+                                  LoadingPlaceholder="rotate.png"
+                                  ErrorPlaceholder="error.png"
+                                  DownsampleToViewSize="true"
+                                  Source="{Binding Owner.AvatarUrl}">
+                    <ffil:CachedImage.Transformations>
+                        <ffts:CircleTransformation/>
+                    </ffil:CachedImage.Transformations>
+                </ffil:CachedImage>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2"
+                         Grid.Column="1"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center"
+                         Spacing="0">
+                <Label Text="{Binding CustomName}"
+                       TextColor="#406eb8"
+                       HorizontalOptions="Center"
+                       FontSize="Medium"/>
+                <Label Text="{Binding CustomFullName}"
+                       TextColor="#8f8f8f"
+                       HorizontalOptions="Center"
+                       FontSize="Micro"/>
+            </StackLayout>
+
+            <Grid RowSpacing="0"
+                  Grid.Row="2"
+                  Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout VerticalOptions="FillAndExpand"
+                             HorizontalOptions="Start"
+                             Margin="0,5,0,0"
+                             Spacing="5"
+                             Grid.Row="0"
+                             Grid.Column="0"
+                             Orientation="Horizontal">
+                    <Image HeightRequest="24"
+                           WidthRequest="24"
+                           Source="branch.png"/>
+                    <Label Text="{Binding ForksCount}" 
+                           FontSize="Medium"
+                           TextColor="#de9307" 
+                           VerticalTextAlignment="Center"/>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="FillAndExpand"
+                             HorizontalOptions="Start"
+                             Margin="0,5,0,0"
+                             Spacing="5"
+                             Grid.Row="0"
+                             Grid.Column="1"
+                             Orientation="Horizontal">
+                    <Image HeightRequest="24"
+                           WidthRequest="24"
+                           Source="star.png"/>
+                    <Label Text="{Binding StargazersCount}" 
+                           FontSize="Medium" 
+                           TextColor="#de9307"
+                           VerticalTextAlignment="Center"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

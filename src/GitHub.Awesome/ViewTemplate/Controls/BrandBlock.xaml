@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:GitHub.Awesome.Infra.Resources;assembly=GitHub.Awesome"
+             x:Class="GitHub.Awesome.ViewTemplate.Controls.BrandBlock">
+    <Grid ColumnSpacing="10"
+          Padding="0">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="Auto" />
+            <ColumnDefinition
+                Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        
+        <Image
+            Grid.Column="0"
+            HeightRequest="64"
+            WidthRequest="64"
+            Source="brand.png"
+            BackgroundColor="Transparent" />
+        
+        <StackLayout
+            Grid.Column="1"
+            Orientation="Vertical"
+            HorizontalOptions="Start"
+            VerticalOptions="Center"
+            Spacing="0">
+            <Label
+                Text="{ x:Static resx:AppResources.LABEL_APP }"
+                FontAttributes="Bold"
+                FontSize="18"
+                VerticalTextAlignment="Start" />
+            
+            <Label
+                Text="{ x:Static resx:AppResources.LABEL_COMPANY }"
+                VerticalTextAlignment="Start" />
+        </StackLayout>
+
+    </Grid>
+</ContentView>

@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.0.0.446417" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.3.840" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.3.840" />
+    <PackageReference Include="Humanizer" Version="2.3.3" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.1.1" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\Base\" />
+    <Folder Include="ViewTemplate\Templates\" />
+    <Folder Include="View\Interfaces\" />
+    <Folder Include="View\Base\" />
+    <Folder Include="Infra\Backend\" />
+    <Folder Include="Infra\Interfaces\" />
+    <Folder Include="Infra\Resources\" />
+    <Folder Include="Infra\Common\Notification\" />
+    <Folder Include="Infra\Common\Exceptions\" />
+    <Folder Include="Infra\Backend\Enum\" />
+    <Folder Include="Infra\Backend\Exceptions\" />
+    <Folder Include="ViewModel\Navigation\" />
+    <Folder Include="ViewModel\Navigation\Interfaces\" />
+    <Folder Include="ViewTemplate\Styles\" />
+    <Folder Include="View\Pages\Navigation\" />
+    <Folder Include="ViewTemplate\Controls\" />
+    <Folder Include="Infra\Caching\" />
+    <Folder Include="View\Helpers\" />
+    <Folder Include="Infra\Common\Paging\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="View\Pages\AboutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Pages\PullRequestListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Pages\RepositoryListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Infra\Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Infra\Common\Exceptions\BaseException.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Infra\Resources\AppResources.Designer.cs">
+      <DependentUpon>AppResources.resx</DependentUpon>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+</Project>

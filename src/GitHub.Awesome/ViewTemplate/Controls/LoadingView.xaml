@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:GitHub.Awesome.Infra.Resources;assembly=GitHub.Awesome"
+             x:Class="GitHub.Awesome.ViewTemplate.Controls.LoadingView">
+    <ContentView.Content>
+        <Frame CornerRadius="10" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                Padding="5" 
+                HeightRequest="100"
+                WidthRequest="100"
+                BackgroundColor="#C08bbf65">
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <ActivityIndicator HorizontalOptions="Center" 
+                                   Color="#FFFFFF" 
+                                   VerticalOptions="Center" 
+                                   IsRunning="true" 
+                                   IsVisible="True" />
+                
+                <Label Text="{x:Static resx:AppResources.LABEL_WAITING}" 
+                       TextColor="#FFFFFF" 
+                       IsVisible="true" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" />
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

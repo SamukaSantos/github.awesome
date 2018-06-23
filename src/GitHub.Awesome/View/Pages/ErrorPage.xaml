@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:GitHub.Awesome.Infra.Resources;assembly=GitHub.Awesome" 
+             x:Class="GitHub.Awesome.View.Pages.ErrorPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                     Spacing="10">
+            <StackLayout Margin="10">
+                <Image Source="notification.png"
+                       WidthRequest="200"
+                       HeightRequest="200"/>
+                    <StackLayout Padding="20">
+                        <Label x:Name="lblErrorMessage"
+                           TextColor="Gray"
+                           FontSize="Medium"/>
+                    </StackLayout>
+                    <Button x:Name="btnError"
+                            CornerRadius="10"
+                            TextColor="#fff"
+                            BackgroundColor="#8bbf65"
+                            Text="{ x:Static resx:AppResources.LABEL_GOTIT }"/>
+               </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:GitHub.Awesome.Infra.Resources;assembly=GitHub.Awesome"
+             xmlns:ffil="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffts="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="GitHub.Awesome.View.Pages.AboutPage"
+             Title="{ x:Static resx:AppResources.LABEL_AUTHOR_TITLE }">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                     Spacing="10">
+            <StackLayout Margin="10">
+                <ffil:CachedImage WidthRequest="200"
+                                  HeightRequest="200"
+                                  DownsampleToViewSize="true"
+                                  Source="author.png">
+                    <ffil:CachedImage.Transformations>
+                        <ffts:CircleTransformation/>
+                    </ffil:CachedImage.Transformations>
+                </ffil:CachedImage>
+                <StackLayout Padding="20">
+                    <Label Text="{ x:Static resx:AppResources.LABEL_CREATEDBY }"
+                           TextColor="Gray"
+                           FontSize="Micro"/>
+
+                    <Label Text="{ x:Static resx:AppResources.LABEL_AUTHOR }"
+                           TextColor="Gray"
+                           FontSize="Medium"/>
+
+                    <Label Text="{ x:Static resx:AppResources.LABEL_LINKEDIN }"
+                           TextColor="Gray"
+                           FontSize="Micro"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

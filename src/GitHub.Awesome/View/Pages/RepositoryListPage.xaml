@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pg:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pg="clr-namespace:GitHub.Awesome.View.Base;assembly=GitHub.Awesome"
+             xmlns:resx="clr-namespace:GitHub.Awesome.Infra.Resources;assembly=GitHub.Awesome"
+             xmlns:tp="clr-namespace:GitHub.Awesome.ViewTemplate.Templates;assembly=GitHub.Awesome"
+             xmlns:cc="clr-namespace:GitHub.Awesome.ViewTemplate.Controls;assembly=GitHub.Awesome"
+             BackgroundColor="#e8e8e8"
+             Title="{ x:Static resx:AppResources.LABEL_APP }"
+             x:Class="GitHub.Awesome.View.Pages.RepositoryListPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="stackStyle" TargetType="StackLayout">
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="Margin" Value="5" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <StackLayout Style="{StaticResource stackStyle}"
+                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                     AbsoluteLayout.LayoutFlags="All">
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <SearchBar HorizontalOptions="FillAndExpand"
+                           Placeholder="Search"
+                           Text="{Binding SearchText}"/>
+            </StackLayout>
+            <ListView x:Name="lstRepositories"
+                      ItemsSource="{Binding Items}"
+                      HasUnevenRows="true"
+                      CachingStrategy="RecycleElement"
+                      SeparatorVisibility="Default"
+                      BackgroundColor="#fff">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <tp:RepositoryItemViewTemplate Margin="5" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+        <cc:LoadingView IsVisible="{Binding IsBusy}" 
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        Padding="10, 0" />
+    </AbsoluteLayout> 
+</pg:BaseContentPage>

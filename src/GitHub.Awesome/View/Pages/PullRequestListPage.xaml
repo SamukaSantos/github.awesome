@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pg:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pg="clr-namespace:GitHub.Awesome.View.Base;assembly=GitHub.Awesome"
+             xmlns:resx="clr-namespace:GitHub.Awesome.Infra.Resources;assembly=GitHub.Awesome" 
+             xmlns:tp="clr-namespace:GitHub.Awesome.ViewTemplate.Templates;assembly=GitHub.Awesome"
+             xmlns:cc="clr-namespace:GitHub.Awesome.ViewTemplate.Controls;assembly=GitHub.Awesome"
+             x:Class="GitHub.Awesome.View.Pages.PullRequestListPage"
+             Title="{Binding RepositoryItem.Name}">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="stackStyle" TargetType="StackLayout">
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="Margin" Value="5" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <StackLayout Style="{StaticResource stackStyle}"
+                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                     AbsoluteLayout.LayoutFlags="All">
+            <StackLayout HorizontalOptions="FillAndExpand"
+                         Orientation="Horizontal"
+                         BackgroundColor="#e8e8e8"
+                         Padding="10">
+                <Label FormattedText="{Binding FormattedValues}" />
+            </StackLayout>
+            <ListView x:Name="lstPullRequests"
+                      HasUnevenRows="true"
+                      ItemsSource="{Binding Items}"
+                      CachingStrategy="RecycleElement"
+                      SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <tp:PullRequestItemViewTemplate Margin="5" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <cc:LoadingView IsVisible="{Binding IsBusy}" 
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        Padding="10, 0" />
+    </AbsoluteLayout>
+</pg:BaseContentPage>
