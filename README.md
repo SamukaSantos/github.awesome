@@ -8,4 +8,7 @@ ListView paging and simple implementation of the MVVM standard.
 
 ![repositories-loading](https://user-images.githubusercontent.com/5481198/41811432-d2393870-76e5-11e8-9806-8f0650cc7dc2.png)
 
+![repository-loaded](https://user-images.githubusercontent.com/5481198/41811438-eab26aa2-76e5-11e8-9059-67bea2db0884.png)
+
+
 
